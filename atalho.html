@@ -1,0 +1,50 @@
+<script type="text/javascript">
+document.onkeydown = function(e){
+  if(e.ctrlKey && e.keyCode == 'P'.charCodeAt(0)){
+    e.preventDefault();
+    //your saving code
+  location.href = "https://studio.hmg.ccem.ufrgs.br/";
+  }
+}
+function keyPressed(evt){
+    evt = evt || window.event;
+    var key = evt.keyCode || evt.which;
+    //return String.fromCharCode(key);
+    return key;
+}
+
+document.onkeypress = function(evt) {
+    var str = keyPressed(evt);
+
+    if(str)
+        alert(str);
+};
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<h2 id='pressed'>Teclas pressionadas: </h2>
+<p>Pressione a tecla F</p>
+
+
+<script type="text/javascript">
+$(document).on('keypress', function(e) {
+  console.log(e.which); // Retorna o número código da tecla
+  console.log(e.altKey); // Se o alt foi Pressionado retorna true
+  if ((e.altKey) && (e.which === 112)) { // Pesquisar (Alt + P)
+    alert('pesquisa');
+    document.write('Abriu Pesquisa.');
+  }
+
+});
+
+var pressedCtrl = false; //variável de controle
+	 $(document).keyup(function (e) {  //O evento Kyeup é acionado quando as teclas são soltas
+	 	if(e.which == 17) pressedCtrl=false; //Quando qualuer tecla for solta é preciso informar que Crtl não está pressionada
+	 })
+	$(document).keydown(function (e) { //Quando uma tecla é pressionada
+		if(e.which == 17) pressedCtrl = true; //Informando que Crtl está acionado
+		if((e.which == 13|| e.keyCode == 13) && pressedCtrl == true) { //Reconhecendo tecla Enter
+			location.href = "https://studio.hmg.ccem.ufrgs.br/";
+		 }
+	});
+
+</script>
